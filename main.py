@@ -4,7 +4,7 @@ import pyautogui
 import os
 import ctypes
 
-
+print("Press ENTER after every prompt")
 delay = input("How long between itterations? [Milliseconds] default: 10500: ")
 if delay == "":
     delay = 10500
@@ -27,12 +27,15 @@ while counter > 0:
     time.sleep(1)
     counter -= 1
 os.system('cls')
-print("Starting")
+print(f"""Running Macro:
+    Delay:  {delay}
+    Key  :  {key}
+Press [CTRL + C] to exit""")
 while True:
     try:
         pyautogui.press(key)
         time.sleep(delay/1000)
     except KeyboardInterrupt:
-        print("Exiting... Bye Bye Lina!")
+        print("Exiting...")
         time.sleep(2)
         exit()
